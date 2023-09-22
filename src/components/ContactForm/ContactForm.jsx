@@ -2,12 +2,12 @@ import { Form, FormLabel, FormInput, FormButton } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from 'redux/selectors';
 import Notiflix from 'notiflix';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 
 
 
 export function ContactForm() {
-    const contacts = useSelector(getContacts);
+    const { contactsItem } = useSelector(getContacts);
     const dispatch = useDispatch();
 
     const handleSubmit = evt => {
@@ -21,7 +21,7 @@ export function ContactForm() {
             `${name.value} is already in contacts.`
           );
         } else {
-          dispatch(addContact(name.value, number.value));
+            dispatch(addContact({ name: name.value, phone: number.value }));
         }
         form.reset();
     };
@@ -53,10 +53,10 @@ export function ContactForm() {
     );
 }
 
-    
 
-    
-    
-   
-  
+
+
+
+
+
 
