@@ -21,7 +21,7 @@ import {
 
     const getFilterContact = () => {
       const normalizedFilter = filter.toLowerCase().trim();
-      return contacts.filter(({ name }) =>
+      return contactsItem.filter(({ name }) =>
         name.toLowerCase().includes(normalizedFilter)
       );
     };
